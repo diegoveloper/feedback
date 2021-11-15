@@ -238,6 +238,7 @@ class FeedbackWidgetState extends State<FeedbackWidget>
     OnFeedbackCallback onFeedbackSubmitted,
     ScreenshotController controller,
     String feedback,
+    BuildContext context,
     double pixelRatio, {
     Duration delay = const Duration(milliseconds: 200),
     Map<String, dynamic>? extras,
@@ -258,6 +259,7 @@ class FeedbackWidgetState extends State<FeedbackWidget>
         await onFeedbackSubmitted(UserFeedback(
           text: feedback,
           screenshot: screenshot,
+          context: context,
           extra: extras,
         ));
       },
@@ -281,6 +283,7 @@ class FeedbackWidgetState extends State<FeedbackWidget>
       onFeedbackSubmitted,
       controller,
       feedback,
+      context,
       pixelRatio,
       delay: delay,
       extras: extras,

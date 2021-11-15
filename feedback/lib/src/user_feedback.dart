@@ -1,5 +1,6 @@
 import 'dart:typed_data';
 import 'package:feedback/src/better_feedback.dart';
+import 'package:flutter/material.dart';
 
 /// Container for the feedback of the user.
 class UserFeedback {
@@ -8,6 +9,7 @@ class UserFeedback {
   UserFeedback({
     required this.text,
     required this.screenshot,
+    required this.context,
     this.extra,
   });
 
@@ -17,6 +19,10 @@ class UserFeedback {
   /// A raw png encoded screenshot of the app. Probably annotated with helpful
   /// drawings by the user.
   final Uint8List screenshot;
+
+  /// This contains the BuildContext associated with the [BetterFeedback] widget.
+  /// Users can use this context instead of the initial context that could be disposed.
+  final BuildContext context;
 
   /// This can contain additional information. By default this is always empty.
   /// When using a custom [BetterFeedback.feedbackBuilder] this can be used
